@@ -24,6 +24,14 @@ class Emprestimo {
     this.dataDevolucaoPrevista = dataDevolucaoPrevista;
     this.dataDevolucao = dataDevolucao;
   }
+
+  verificarStatus() {
+    if (this.dataDevolucao) {
+      return "Devolvido";
+    } else {
+      return "Não devolvido";
+    }
+  }
 }
 
 export default Emprestimo;
