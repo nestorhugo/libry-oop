@@ -1,6 +1,5 @@
 import Usuario from "../Usuario";
 import Livro from "../Livro";
-import StatusLivro from "../Livro";
 
 describe("Usuario", () => {
   let usuario: Usuario;
