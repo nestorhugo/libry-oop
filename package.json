@@ -4,13 +4,15 @@
   "description": "Libry - Orientado a Objetos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "tsc && node dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/babel__core": "^7.20.5"
+    "@types/babel__core": "^7.20.5",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0"
   }
 }
