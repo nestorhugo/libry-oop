@@ -17,7 +17,7 @@ describe("Usuario", () => {
     );
   });
 
-  it("should be able to borrow a book", () => {
+  it("should be able to borrow a book!", () => {
     usuario.pegarEmprestado(livro);
     expect(usuario.livrosEmprestados).toContain(livro);
   });
