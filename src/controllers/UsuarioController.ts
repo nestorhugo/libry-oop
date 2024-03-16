@@ -33,7 +33,11 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   try {
     const usuarios = JSON.parse(fs.readFileSync("usuarios.json", "utf-8"));
-    const novoUsuario = new Usuario(req.body.id, req.body.nome, req.body.email);
+    const maxId =
+      usuarios.length > 0
+        ? Math.max(...usuarios.map((u: { id: any }) => u.id))
+        : 0;
+    const novoUsuario = new Usuario(maxId + 1, req.body.nome, req.body.email);
     usuarios.push(novoUsuario);
     fs.writeFileSync("usuarios.json", JSON.stringify(usuarios));
     res.json(novoUsuario);
@@ -50,7 +54,11 @@ router.put("/:id", (req, res) => {
     (u: Usuario) => u.id === Number(req.params.id)
   );
   if (index !== -1) {
-    usuarios[index] = req.body;
+    if (req.body.id) {
+      delete req.body.id;
+    }
+
+    Object.assign(usuarios[index], req.body);
     fs.writeFileSync("usuarios.json", JSON.stringify(usuarios));
     res.json(usuarios[index]);
   } else {
