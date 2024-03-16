@@ -14,4 +14,6 @@ let meuLivro = new Livro(
   10
 );
 
-console.log(meuLivro);
+const novoUsuario = new Usuario(1, "gorge", "gorge@gmail.com");
+
+console.log(novoUsuario);

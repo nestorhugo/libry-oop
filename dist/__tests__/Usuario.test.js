@@ -1,7 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Usuario_1 = require("../Usuario");
-const Livro_1 = require("../Livro");
+const Usuario_1 = __importDefault(require("../Usuario"));
+const Livro_1 = __importDefault(require("../Livro"));
 describe("Usuario", () => {
     let usuario;
     let livro;
@@ -15,7 +18,7 @@ describe("Usuario", () => {
         5 // quantidadeDisponivel
         );
     });
-    it("should be able to borrow a book", () => {
+    it("should be able to borrow a book!", () => {
         usuario.pegarEmprestado(livro);
         expect(usuario.livrosEmprestados).toContain(livro);
     });
