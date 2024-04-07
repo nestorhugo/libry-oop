@@ -1,5 +1,8 @@
-# libry-oop
+## Projeto de Biblioteca
 
-Libry - Orientado a Objetos
+Este projeto tem como objetivo ser um sistema de biblioteca simples, onde existem dois tipos de usuários que tem permissões diferentes:
 
-Projeto da matéria Programação Orientada a Objetos, ministrada pelo professor Emerson André, na UTFPR. 2024.
+- Bibliotecário: pode criar, editar, excluir e listar os livros, além de poder confirmar o pedido de reserva de um aluno;
+- Aluno: pode listar os livros e pedir a reserva dos livros
+
+A intenção é deixar o escopo mais fechado e com o passar do tempo avaliar a possibilidade de incrementar mais funções ao sistema.
