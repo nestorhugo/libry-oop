@@ -1,6 +1,6 @@
 import Datacenter from "../db/Datacenter";
-import Library from "../model/Library";
-import Book from "../model/Book";
+import Library from "../models/Library";
+import Book from "../models/Book";
 
 export default class LibraryController {
   private datacenter: Datacenter;

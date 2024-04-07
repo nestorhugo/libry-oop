@@ -1,6 +1,6 @@
-import Book from "../model/Book";
-import Library from "../model/Library";
-import Student from "../model/Student";
+import Book from "../models/Book";
+import Library from "../models/Library";
+import Student from "../models/Student";
 //lei da responsabilidade unica.
 //cabe ao Datacenter guardar, acessar e manipular os dados de
 // FoodProduct e CleaningProduct

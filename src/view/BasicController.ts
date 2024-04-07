@@ -1,5 +1,5 @@
 import PrimaryScreen from "../view/PrimaryScreen";
-import BookController from "../control/BookController";
+import BookController from "../controllers/BookController";
 import Datacenter from "../db/Datacenter";
 
 const datacenter = new Datacenter();
