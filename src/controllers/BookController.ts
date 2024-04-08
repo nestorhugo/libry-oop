@@ -27,8 +27,19 @@ export default class BookController {
     }
   }
 
+  public editBook(req: Request, res: Response) {
+    const { id } = req.params;
+    const bookData = req.body;
+    const updatedBook = this.datacenter.editBook(Number(id), bookData);
+    if (updatedBook) {
+      res.status(200).send(updatedBook);
+    } else {
+      res.status(404).send({ message: "Book not found." });
+    }
+  }
+
   public getBooks(req: Request, res: Response) {
-    const books = this.datacenter.book;
+    const books = this.datacenter.books;
     res.status(200).send(books);
   }
 

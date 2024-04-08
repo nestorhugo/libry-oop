@@ -2,27 +2,34 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 //lei da responsabilidade unica.
 //cabe ao Datacenter guardar, acessar e manipular os dados de
-// FoodProduct e CleaningProduct
 class Datacenter {
     constructor() {
-        this.book = [];
+        this.books = [];
         this.library = [];
         this.student = [];
     }
     // 👇👇Books!
     addNewBook(food) {
-        this.book.push(food);
+        this.books.push(food);
     }
     removeBook(id) {
-        const index = this.book.findIndex((livro) => livro.id === id);
+        const index = this.books.findIndex((book) => book.id === id);
         if (index !== -1) {
-            this.book.splice(index, 1);
+            this.books.splice(index, 1);
             return true;
         }
         return false;
     }
+    editBook(id, bookData) {
+        const book = this.books.find((book) => book.id === id);
+        if (book) {
+            Object.assign(book, bookData);
+            return book;
+        }
+        return null;
+    }
     getBookSize() {
-        return this.book.length;
+        return this.books.length;
     }
     // 👇👇Library!
     addNewLibrary(library) {

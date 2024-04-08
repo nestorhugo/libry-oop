@@ -3,29 +3,37 @@ import Library from "../models/Library";
 import Student from "../models/Student";
 //lei da responsabilidade unica.
 //cabe ao Datacenter guardar, acessar e manipular os dados de
-// FoodProduct e CleaningProduct
 export default class Datacenter {
-  public book: Book[] = [];
+  public books: Book[] = [];
   public library: Library[] = [];
   public student: Student[] = [];
 
   // 👇👇Books!
 
   public addNewBook(food: Book): void {
-    this.book.push(food);
+    this.books.push(food);
   }
 
   public removeBook(id: number): boolean {
-    const index = this.book.findIndex((livro) => livro.id === id);
+    const index = this.books.findIndex((book) => book.id === id);
     if (index !== -1) {
-      this.book.splice(index, 1);
+      this.books.splice(index, 1);
       return true;
     }
     return false;
   }
 
+  public editBook(id: number, bookData: Partial<Book>): Book | null {
+    const book = this.books.find((book) => book.id === id);
+    if (book) {
+      Object.assign(book, bookData);
+      return book;
+    }
+    return null;
+  }
+
   public getBookSize(): number {
-    return this.book.length;
+    return this.books.length;
   }
 
   // 👇👇Library!
