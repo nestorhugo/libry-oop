@@ -22,14 +22,14 @@ class PrimaryScreen {
                     this.registerBook(book);
                     break;
                 case "2":
-                    //console.clear();
+                    console.clear();
                     this.bookController.listAllBooks();
                     break;
                 case "3":
                     showScreen = true;
                     break;
                 default:
-                    //console.clear();
+                    console.clear();
                     console.log("Tchau!!!!!");
             }
         }
