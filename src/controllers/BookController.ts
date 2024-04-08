@@ -17,6 +17,16 @@ export default class BookController {
     res.status(201).send(book);
   }
 
+  public removeBook(req: Request, res: Response) {
+    const { id } = req.params;
+    const removed = this.datacenter.removeBook(Number(id));
+    if (removed) {
+      res.status(200).send({ message: "Book removed successfully." });
+    } else {
+      res.status(404).send({ message: "Book not found." });
+    }
+  }
+
   public getBooks(req: Request, res: Response) {
     const books = this.datacenter.book;
     res.status(200).send(books);

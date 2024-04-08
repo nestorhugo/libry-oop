@@ -7,5 +7,6 @@ const bookController = new BookController(new Datacenter());
 
 router.post("/", (req, res) => bookController.createBook(req, res));
 router.get("/", (req, res) => bookController.getBooks(req, res));
+router.delete("/:id", (req, res) => bookController.removeBook(req, res));
 
 export default router;

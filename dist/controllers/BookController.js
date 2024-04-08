@@ -14,6 +14,16 @@ class BookController {
         this.registerNewBook(book);
         res.status(201).send(book);
     }
+    removeBook(req, res) {
+        const { id } = req.params;
+        const removed = this.datacenter.removeBook(Number(id));
+        if (removed) {
+            res.status(200).send({ message: "Book removed successfully." });
+        }
+        else {
+            res.status(404).send({ message: "Book not found." });
+        }
+    }
     getBooks(req, res) {
         const books = this.datacenter.book;
         res.status(200).send(books);

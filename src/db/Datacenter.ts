@@ -15,8 +15,13 @@ export default class Datacenter {
     this.book.push(food);
   }
 
-  public removeBook(id: number): void {
-    this.book.splice(id, 1);
+  public removeBook(id: number): boolean {
+    const index = this.book.findIndex((livro) => livro.id === id);
+    if (index !== -1) {
+      this.book.splice(index, 1);
+      return true;
+    }
+    return false;
   }
 
   public getBookSize(): number {

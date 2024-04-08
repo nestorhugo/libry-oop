@@ -14,7 +14,12 @@ class Datacenter {
         this.book.push(food);
     }
     removeBook(id) {
-        this.book.splice(id, 1);
+        const index = this.book.findIndex((livro) => livro.id === id);
+        if (index !== -1) {
+            this.book.splice(index, 1);
+            return true;
+        }
+        return false;
     }
     getBookSize() {
         return this.book.length;
