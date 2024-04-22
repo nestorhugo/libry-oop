@@ -1,10 +1,22 @@
+import Library from "./Library";
+
 export default class Book {
+  library: Library | null = null;
+
   constructor(
     public id: number,
     public title: string,
     public category: string,
     public isAvailable: boolean = true
   ) {}
+
+  setLibrary(library: Library): void {
+    this.library = library;
+  }
+
+  getLibrary(): Library | null {
+    return this.library;
+  }
 
   setTitle(title: string): void {
     this.title = title;
@@ -15,7 +27,6 @@ export default class Book {
     this.category = category;
   }
 
-  // Você também pode querer adicionar "getters" para essas propriedades
   getTitle(): string {
     return this.title;
   }

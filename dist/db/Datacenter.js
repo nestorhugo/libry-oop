@@ -41,6 +41,14 @@ class Datacenter {
     getLibrarySize() {
         return this.library.length;
     }
+    getLibraryById(id) {
+        for (let library of this.library) {
+            if (library.id === id) {
+                return library;
+            }
+        }
+        return null;
+    }
     // 👇👇Students!
     addNewStudent(student) {
         this.student.push(student);

@@ -6,6 +6,13 @@ class Book {
         this.title = title;
         this.category = category;
         this.isAvailable = isAvailable;
+        this.library = null;
+    }
+    setLibrary(library) {
+        this.library = library;
+    }
+    getLibrary() {
+        return this.library;
     }
     setTitle(title) {
         this.title = title;
@@ -14,7 +21,6 @@ class Book {
     setCategory(category) {
         this.category = category;
     }
-    // Você também pode querer adicionar "getters" para essas propriedades
     getTitle() {
         return this.title;
     }

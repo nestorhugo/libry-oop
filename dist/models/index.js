@@ -1,31 +1,21 @@
 "use strict";
-// import Book from "./Book";
-// import Library from "./Library";
-// import Librarian from "./Librarian";
-// import Student from "./Student";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// const library = new Library();
-// const librarian = new Librarian(1, "Nestor");
-// librarian.addBook(library, new Book(1, "O menino cabeçudo", "Infantil"));
-// librarian.addBook(library, new Book(2, "O menino sem pai", "Drama"));
-// librarian.addBook(library, new Book(3, "O menino inteligente", "Didático"));
-// console.log(library.listBooks());
-// const student = new Student(1, "Hugo");
-// console.log(student.listBooksByCategory(library, "Infantil"));
-// const book = library.listBooks()[0];
-// student.reserveBook(book);
-// librarian.confirmReservation(book);
-// console.log(library.listBooks());
-// import Datacenter from "../db/Datacenter";
-// import BookController from "../control/BookController";
-// const datacenter = new Datacenter();
-// const bookController = new BookController(datacenter);
-// const newBook = bookController.getNewBook(1, "O Senhor dos Anéis", "Fantasia");
-// bookController.registerNewBook(newBook);
-// bookController.listAllBooks();
-const BasicController_1 = __importDefault(require("../view/BasicController"));
-let startController = new BasicController_1.default();
-startController.startSystem();
+const Book_1 = __importDefault(require("../models/Book"));
+const Library_1 = __importDefault(require("../models/Library"));
+// Crie uma biblioteca
+const library = new Library_1.default(1);
+// Crie três livros
+const book1 = new Book_1.default(1, "The Great Gatsby", "Fiction", true);
+const book2 = new Book_1.default(2, "To Kill a Mockingbird", "Fiction", true);
+const book3 = new Book_1.default(3, "1984", "Fiction", true);
+// Associe os livros à biblioteca
+book1.setLibrary(library);
+book2.setLibrary(library);
+book3.setLibrary(library);
+// Adicione os livros à biblioteca
+library.addBook(book1);
+library.addBook(book2);
+library.addBook(book3);

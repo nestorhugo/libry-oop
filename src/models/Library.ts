@@ -1,7 +1,12 @@
 import Book from "./Book";
 
 export default class Library {
+  id: number;
   private books: Book[] = [];
+
+  constructor(id: number) {
+    this.id = id;
+  }
 
   addBook(book: Book): void {
     this.books.push(book);

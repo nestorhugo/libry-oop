@@ -7,10 +7,14 @@ export default class LibraryController {
 
   constructor(datacenter: Datacenter) {
     this.datacenter = datacenter;
+
+    // Crie uma biblioteca quando o LibraryController é instanciado
+    const defaultLibrary = this.createNewLibrary(1);
+    this.registerNewLibrary(defaultLibrary);
   }
 
-  public getNewLibrary(): Library {
-    return new Library();
+  public createNewLibrary(id: number): Library {
+    return new Library(id);
   }
 
   public registerNewLibrary(library: Library) {

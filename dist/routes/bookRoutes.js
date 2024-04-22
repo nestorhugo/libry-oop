@@ -4,12 +4,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const BookController_1 = __importDefault(require("../controllers/BookController"));
-const Datacenter_1 = __importDefault(require("../db/Datacenter"));
-const router = express_1.default.Router();
-const bookController = new BookController_1.default(new Datacenter_1.default());
-router.get("/", (req, res) => bookController.getBooks(req, res));
-router.post("/", (req, res) => bookController.createBook(req, res));
-router.put("/:id", (req, res) => bookController.editBook(req, res));
-router.delete("/:id", (req, res) => bookController.removeBook(req, res));
-exports.default = router;
+const bookRoutes = (bookController) => {
+    const router = express_1.default.Router();
+    router.get("/", (req, res) => bookController.getBooks(req, res));
+    router.post("/", (req, res) => bookController.createBook(req, res));
+    router.put("/:id", (req, res) => bookController.editBook(req, res));
+    router.delete("/:id", (req, res) => bookController.removeBook(req, res));
+    return router;
+};
+exports.default = bookRoutes;

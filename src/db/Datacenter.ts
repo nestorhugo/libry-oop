@@ -49,6 +49,15 @@ export default class Datacenter {
     return this.library.length;
   }
 
+  public getLibraryById(id: number): Library | null {
+    for (let library of this.library) {
+      if (library.id === id) {
+        return library;
+      }
+    }
+    return null;
+  }
+
   // 👇👇Students!
   public addNewStudent(student: Student): void {
     this.student.push(student);

@@ -7,9 +7,12 @@ const Library_1 = __importDefault(require("../models/Library"));
 class LibraryController {
     constructor(datacenter) {
         this.datacenter = datacenter;
+        // Crie uma biblioteca quando o LibraryController é instanciado
+        const defaultLibrary = this.createNewLibrary(1);
+        this.registerNewLibrary(defaultLibrary);
     }
-    getNewLibrary() {
-        return new Library_1.default();
+    createNewLibrary(id) {
+        return new Library_1.default(id);
     }
     registerNewLibrary(library) {
         this.datacenter.addNewLibrary(library);

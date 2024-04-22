@@ -11,8 +11,21 @@ export default class BookController {
   }
 
   public createBook(req: Request, res: Response) {
-    const { id, title, category } = req.body;
+    const { id, title, category, libraryId } = req.body;
     const book = this.getNewBook(id, title, category);
+
+    if (libraryId) {
+      // Buscar a biblioteca pelo ID
+      const library = this.datacenter.getLibraryById(libraryId);
+      if (!library) {
+        res.status(404).send({ message: "Library not found." });
+        return;
+      }
+
+      // Associar o livro à biblioteca
+      book.setLibrary(library);
+    }
+
     this.registerNewBook(book);
     res.status(201).send(book);
   }
