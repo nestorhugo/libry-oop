@@ -3,8 +3,8 @@ import Library from "./Library";
 import User from "./User";
 
 export default class Librarian extends User {
-  constructor(id: number, name: string) {
-    super(id, name);
+  constructor(id: number, name: string, email: string, password: string) {
+    super(id, name, email, password);
   }
 
   addBook(library: Library, book: Book): void {

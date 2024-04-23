@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const bookRoutes_1 = __importDefault(require("./bookRoutes"));
-const studentRoutes_1 = __importDefault(require("./studentRoutes"));
-const app = (0, express_1.default)();
-app.use(bookRoutes_1.default);
-app.use(studentRoutes_1.default);
-exports.default = app;
+const libraryRoutes = (libraryController) => {
+    const router = express_1.default.Router();
+    //   router.get("/", (req, res) => libraryController.listAllLibraries(req, res));
+    return router;
+};
+exports.default = libraryRoutes;
